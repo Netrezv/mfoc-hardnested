@@ -306,16 +306,10 @@ int main(int argc, char *const argv[])
       t.num_blocks = NR_BLOCKS_4k;
       break;
     case 0x38:
-      if (get_rats_is_2k(t, r)) {
-          printf("Found Mifare Plus 2k tag\n");
-          t.num_sectors = NR_TRAILERS_2k;
-          t.num_blocks = NR_BLOCKS_2k;
-      } else {
-        printf("Found Mifare Classic 4k tag\n");
-        t.num_sectors = NR_TRAILERS_4k;
-        t.num_blocks = NR_BLOCKS_4k;
-      }
-      break;          
+      printf("Found Mifare Classic 4k tag\n");
+      t.num_sectors = NR_TRAILERS_4k;
+      t.num_blocks = NR_BLOCKS_4k;
+      break;     
     default:
       ERR("Cannot determine card type from SAK");
       goto error;
